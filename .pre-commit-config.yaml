@@ -1,0 +1,29 @@
+# Pre-commit framework Configuration
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# This file is based on The Common Pre-commit Framework Configuration Template
+# https://github.com/Lin-Buo-Ren/common-precommit-config-template
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  # Check Markdown documents with Markdownlint(Node.js variant)
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.23.2
+    hooks:
+      - id: markdownlint
+
+  # Check shell scripts with ShellCheck
+  # NOTE: ShellCheck must be available in the command search PATHs
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.0.0
+    hooks:
+      - id: shellcheck
