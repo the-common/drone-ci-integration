@@ -6,6 +6,7 @@
 #     https://docs.drone.io/quickstart/docker/
 # This file is based on The Common Drone CI Configuration Template project:
 # https://github.com/Lin-Buo-Ren/the-common-drone-ci-configuration-template
+
 kind: pipeline
 type: docker
 name: Default pipeline based on the Docker runner
