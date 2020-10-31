@@ -23,6 +23,7 @@ apk add \
 
 # Install markdownlint hook dependencies
 apk add \
+	bash \
     nodejs \
     npm
 
