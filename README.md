@@ -1,3 +1,8 @@
+---
+SPDX-FileCopyrightText: 2020 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
+---
+
 # The Common Drone CI Configuration Template
 
 This project provides a common base of Drone CI's configuration file(.drone.yml) that should be easily adaptable for most project's with little modifications.
