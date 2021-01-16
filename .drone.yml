@@ -32,7 +32,7 @@ steps:
 - name: Fetching Git submodules
   image: alpine/git
   commands:
-  - git submodule update --init
+    - git submodule update --init
 
 - name: Static code analysis
   depends_on:
