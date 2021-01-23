@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Build proper product release archive from source
+# Patch template release archive for project only differences
 #
 # Copyright 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0
@@ -8,12 +8,13 @@
 set \
     -o errexit \
     -o nounset
-
+set -x
 PRODUCT_IDENTIFIER="${PRODUCT_IDENTIFIER:-${DRONE_REPO#*/}}"
 
 apk add \
     git \
 	gzip \
+	sed \
 	tar
 
 git_describe="$(
@@ -25,11 +26,20 @@ git_describe="$(
 product_version="${git_describe#v}"
 product_release_id="${PRODUCT_IDENTIFIER}"-"${product_version}"
 
-git archive \
-	--format tar.gz \
-	--prefix "${product_release_id}"/ \
-	--output "${product_release_id}".tar.gz \
-	HEAD
+# Updating tar requires uncompressed tarball
+gunzip \
+    --force \
+	--verbose \
+	"${product_release_id}".tar.gz
+tar \
+	--append \
+	--verbose \
+	--file "${product_release_id}".tar \
+	--transform="flags=r;s|(.*)\\.shipped$|${product_release_id}/\\1|x" \
+	.*.shipped
+gzip \
+	--verbose \
+	"${product_release_id}".tar
 
 echo
-echo Product release archive generated successfully.
+echo Product release archive patched successfully.

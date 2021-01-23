@@ -20,7 +20,7 @@
 
 # Do track pre-commit configuration files
 # https://pre-commit.com/
-!.pre-commit-config.yaml
+!.pre-commit-config.yaml*
 
 # Do track Markdownlint configuration files
 # https://github.com/DavidAnson/markdownlint
@@ -28,7 +28,7 @@
 
 # Do track Drone CI configuration files
 # https://docs.drone.io/
-!.drone.yml
+!.drone.yml*
 
 # Do track REUSE configuration files
 !.reuse/
