@@ -64,4 +64,4 @@ steps:
       api_key:
         from_secret: github_api_token
       files: '*.tar*'
-      title: 'version ${DRONE_TAG##v}'
+      title: '${DRONE_TAG##v}'
