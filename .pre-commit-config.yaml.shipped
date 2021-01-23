@@ -11,14 +11,25 @@ repos:
   # Some out-of-the-box hooks for pre-commit
   # https://github.com/pre-commit/pre-commit-hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.4.0
+    rev: v3.3.0
     hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: detect-aws-credentials
+        args:
+          - --allow-missing-credentials
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
       - id: trailing-whitespace
         args:
           - --markdown-linebreak-ext=md
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-added-large-files
 
   # Check Markdown documents with Markdownlint(Node.js variant)
   # https://github.com/DavidAnson/markdownlint
