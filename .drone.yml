@@ -15,9 +15,6 @@ kind: pipeline
 type: docker
 name: Default pipeline based on the Docker runner
 
-environment:
-  PRODUCT_DISPLAY_NAME: The Common Drone CI Configuration Templates
-
 # Change default clone behavior
 # https://docs.drone.io/pipeline/docker/syntax/cloning/
 clone:
@@ -67,4 +64,4 @@ steps:
       api_key:
         from_secret: github_api_token
       files: '*.tar*'
-      title: '${PRODUCT_DISPLAY_NAME} ${DRONE_TAG##v}'
+      title: 'version ${DRONE_TAG##v}'
