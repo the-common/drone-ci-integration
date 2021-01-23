@@ -1,8 +1,8 @@
-# The Common Drone CI Configuration Template
+# The Common Drone CI Configuration Templates
 
 This project provides a common base of Drone CI's configuration file(.drone.yml) that should be easily adaptable for most project's with little modifications.
 
-[![Continuous Integration(CI) status](https://cloud.drone.io/api/badges/Lin-Buo-Ren/the-common-drone-ci-configuration-template/status.svg)](https://cloud.drone.io/Lin-Buo-Ren/the-common-drone-ci-configuration-template)
+[![Continuous Integration(CI) status](https://cloud.drone.io/api/badges/Lin-Buo-Ren/common-drone-ci-configs/status.svg)](https://cloud.drone.io/Lin-Buo-Ren/common-drone-ci-configs)
 
 ## How to use
 

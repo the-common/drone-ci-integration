@@ -6,14 +6,17 @@
 #   - Docker Pipelines | Drone
 #     https://docs.drone.io/quickstart/docker/
 #
-# This file is based on The Common Drone CI Configuration Template project:
-# https://github.com/Lin-Buo-Ren/the-common-drone-ci-configuration-template
+# This file is based on The Common Drone CI Configuration Templates project:
+# https://github.com/Lin-Buo-Ren/common-drone-ci-configs
 # Copyright 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 
 kind: pipeline
 type: docker
 name: Default pipeline based on the Docker runner
+
+environment:
+  PRODUCT_DISPLAY_NAME: The Common Drone CI Configuration Templates
 
 # Change default clone behavior
 # https://docs.drone.io/pipeline/docker/syntax/cloning/
@@ -64,4 +67,4 @@ steps:
       api_key:
         from_secret: github_api_token
       files: '*.tar*'
-      title: '${DRONE_REPO_NAME} ${DRONE_TAG##v}'
+      title: '${PRODUCT_DISPLAY_NAME} ${DRONE_TAG##v}'
