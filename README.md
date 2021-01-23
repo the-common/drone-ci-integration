@@ -18,7 +18,7 @@ This project provides a common base of Drone CI's configuration file(.drone.yml)
     - (Optional) [.pre-commit-config.yaml](.pre-commit-config.yaml)  
       [pre-commit](https://pre-commit.com) configuration file for continuous integration
     - (Optional) [.markdownlint.yml](.markdownlint.yml)  
-      Markdownlint configurration file for checking Markdown documents
+      Markdownlint configuration file for checking Markdown documents
 
 1. Profit!
 
