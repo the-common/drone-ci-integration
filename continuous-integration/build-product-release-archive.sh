@@ -29,3 +29,6 @@ git archive \
 	--prefix "${product_release_id}"/ \
 	--output "${product_release_id}".tar.gz \
 	HEAD
+
+echo
+echo Product release archive generated successfully.
