@@ -9,8 +9,8 @@ This project provides a common base of Drone CI's configuration file(.drone.yml)
 1. Downlaod release archive from the [Releases](https://github.com/Lin-Buo-Ren/common-drone-ci-configs/releases) page
 1. Extract the release archive
 1. From the release folder, install the following files to your project's root directory
-    - [template.drone.yml](template.drone.yml)  
-      Drone CI configuration file, install as `.drone.yml`
+    - [.drone.yml](.drone.yml)  
+      Drone CI configuration file
     - (Optional) [continuous-integration/](continuous-integration/)  
       Support files for convenience(CI, CD)
     - (Optional) [.gitattributes](.gitattributes)  
