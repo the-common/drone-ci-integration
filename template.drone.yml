@@ -44,11 +44,11 @@ steps:
       - ./continuous-integration/static-code-analysis.sh
 
   - name: Build product release archive
-    depends_on:
-      - Fetching Git tags
     when:
       event:
         - tag
+    depends_on:
+      - Fetching Git tags
     image: alpine:3.12
     commands:
       - ./continuous-integration/build-product-release-archive.sh
