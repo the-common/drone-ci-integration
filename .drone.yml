@@ -8,6 +8,7 @@
 #
 # This file is based on The Common Drone CI Configuration Template project:
 # https://github.com/Lin-Buo-Ren/the-common-drone-ci-configuration-template
+# Copyright 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 
 kind: pipeline
@@ -42,16 +43,25 @@ steps:
     commands:
       - ./continuous-integration/static-code-analysis.sh
 
-  # - name: Generate and deliver built artifacts
-  #   depends_on:
-  #     - Fetching Git tags
-  #     - Fetching Git submodules
-  #   when:
-  #     event:
-  #       - tag
-  #   image: alpine:3.12
-  #   environment:
-  #     GITLAB_AUTH_TOKEN:
-  #       from_secret: gitlab_auth_token
-  #   commands:
-  #     - ./continuous-integration/deliver-built-artifacts.sh
+  - name: Build product release archive
+    when:
+      event:
+        - tag
+    depends_on:
+      - Fetching Git tags
+    image: alpine:3.12
+    commands:
+      - ./continuous-integration/build-product-release-archive.sh
+
+  - name: Deliver release artifacts
+    when:
+      event:
+        - tag
+    depends_on:
+      - Build product release archive
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: github_api_token
+      files: '*.tar*'
+      title: '${DRONE_REPO_NAME} ${DRONE_TAG##v}'
