@@ -19,24 +19,15 @@ script_dir="$(
 
 init(){
     local \
-        templates_dir \
-        shipped_file_filename \
-        shipped_file_filename_without_extension
+        templates_dir
 
     templates_dir="$(get_templates_dir)"
 
     mkdir -pv "${templates_dir}"
-    for shipped_file in \
-        "${script_dir}"/.*.shipped \
-        "${script_dir}"/*.shipped; do
-        shipped_file_filename="${shipped_file##*/}"
-        shipped_file_filename_without_extension="${shipped_file_filename%.shipped}"
-        install \
-            --mode=0644 \
-            --verbose \
-            "${shipped_file}" \
-            "${templates_dir}"/"${shipped_file_filename_without_extension}"
-    done
+    install \
+        --mode=0644 \
+        "${script_dir}"/.drone.yml \
+        "${templates_dir}"/.drone.yml
     install \
         --directory \
         --mode=0755 \
