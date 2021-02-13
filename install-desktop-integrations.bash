@@ -22,8 +22,8 @@ init(){
         templates_dir
 
     templates_dir="$(get_templates_dir)"
-
     mkdir -pv "${templates_dir}"
+
     install \
         --mode=0644 \
         --verbose \
