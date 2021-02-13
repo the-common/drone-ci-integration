@@ -20,6 +20,7 @@ script_dir="$(
 init(){
     local \
         templates_dir \
+        templates_dir_kde="${HOME}"/.local/share/templates \
         drone_yml_filename
 
     templates_dir="$(get_templates_dir)"
@@ -51,6 +52,22 @@ init(){
         --verbose \
         "${script_dir}"/continuous-integration/static-code-analysis.sh \
         "${templates_dir}"/continuous-integration/static-code-analysis.sh
+
+    install \
+        --directory \
+        --mode=0755 \
+        --verbose \
+        "${templates_dir_kde}"
+    install \
+        --mode=0644 \
+        --verbose \
+        "${script_dir}"/"${drone_yml_filename}" \
+        "${templates_dir_kde}"
+    install \
+        --mode=0644 \
+        --verbose \
+        "${script_dir}"/desktop-integration/drone.yml.desktop \
+        "${templates_dir_kde}"
 
     echo -e '\nInstallation completed.'
 }
