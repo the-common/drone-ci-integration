@@ -13,6 +13,7 @@ shopt \
 
 script_dir="$(
     realpath \
+        --relative-base="${PWD}" \
         --strip \
         "${BASH_SOURCE[0]%/*}"
 )"
