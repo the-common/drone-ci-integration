@@ -8,18 +8,29 @@ set \
     -o errexit \
     -o nounset
 
+shopt \
+    -s nullglob
+
 script_dir="${BASH_SOURCE[0]%/*}"
 
 init(){
-    local templates_dir
+    local \
+        templates_dir \
+        shipped_file_filename
 
     templates_dir="$(get_templates_dir)"
 
     mkdir -p "${templates_dir}"
-    install \
-        --mode=0644 \
-        "${script_dir}"/.drone.yml.shipped \
-        "${templates_dir}"/.drone.yml
+    for shipped_file in \
+        "${script_dir}"/.*.shipped \
+        "${script_dir}"/*.shipped; do
+        shipped_file_filename="${shipped_file%.shipped}"
+        install \
+            --mode=0644 \
+            --verbose \
+            "${shipped_file}" \
+            "${templates_dir}"/"${shipped_file_filename}"
+    done
     install \
         --directory \
         --mode=0755 \
