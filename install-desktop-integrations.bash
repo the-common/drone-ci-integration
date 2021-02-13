@@ -19,15 +19,22 @@ script_dir="$(
 
 init(){
     local \
-        templates_dir
+        templates_dir \
+        drone_yml_filename
 
     templates_dir="$(get_templates_dir)"
     mkdir -pv "${templates_dir}"
 
+    if is_source_tree "${script_dir}"; then
+        drone_yml_filename=.drone.yml.shipped
+    else
+        drone_yml_filename=.drone.yml
+    fi
+
     install \
         --mode=0644 \
         --verbose \
-        "${script_dir}"/.drone.yml \
+        "${script_dir}"/"${drone_yml_filename}" \
         "${templates_dir}"/.drone.yml
     install \
         --directory \
@@ -45,6 +52,16 @@ init(){
         --verbose \
         "${script_dir}"/continuous-integration/static-code-analysis.sh \
         "${templates_dir}"/continuous-integration/static-code-analysis.sh
+}
+
+is_source_tree(){
+    local script_dir="${1}"
+
+    if test -n "$(echo -n .*.shipped)"; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 get_templates_dir(){
