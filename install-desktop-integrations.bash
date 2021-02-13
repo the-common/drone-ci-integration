@@ -52,6 +52,8 @@ init(){
         --verbose \
         "${script_dir}"/continuous-integration/static-code-analysis.sh \
         "${templates_dir}"/continuous-integration/static-code-analysis.sh
+
+    echo -e '\nInstallation completed.'
 }
 
 is_source_tree(){
