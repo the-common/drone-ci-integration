@@ -86,10 +86,10 @@ is_source_tree(){
 get_templates_dir(){
     local templates_dir
 
-	if test -f "${HOME}"/.config/user-dirs.dirs;then
+	if test -f "${XDG_CONFIG_HOME:-"${HOME}"/.config}"/user-dirs.dirs;then
 		# external file, disable check
 		#shellcheck source=/dev/null
-		source "${HOME}"/.config/user-dirs.dirs
+		source "${XDG_CONFIG_HOME:-"${HOME}"/.config}"/user-dirs.dirs
 
 		if test ! -v XDG_TEMPLATES_DIR; then
             templates_dir="${HOME}"/Templates
