@@ -12,6 +12,8 @@
 # Copyright © 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
 
 # Exclude development assets from release archive
+# NOTE: Released dotfile assets is included via the release archive patch
+# script, not here
 /.* export-ignore
 /continuous-integration/patch-template-release-archive.sh export-ignore
 
