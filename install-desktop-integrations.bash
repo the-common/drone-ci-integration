@@ -97,7 +97,7 @@ get_templates_dir(){
 			templates_dir="${XDG_TEMPLATES_DIR}"
 		fi
 	else
-        templates_dir="${HOME}"/templates
+        templates_dir="${HOME}"/Templates
     fi
 
     printf '%s' "${templates_dir}"
