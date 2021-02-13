@@ -40,7 +40,6 @@ init(){
         --directory \
         --mode=0755 \
         --verbose \
-        "${templates_dir}"/continuous-integration \
         "${templates_dir}"/continuous-integration
     install \
         --mode=0755 \
