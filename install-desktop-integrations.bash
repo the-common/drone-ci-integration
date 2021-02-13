@@ -40,7 +40,7 @@ get_templates_dir(){
 
 	if test -f "${HOME}"/.config/user-dirs.dirs;then
 		# external file, disable check
-		#shellcheck disable=SC1091
+		#shellcheck source=/dev/null
 		source "${HOME}"/.config/user-dirs.dirs
 
 		if test ! -v XDG_TEMPLATES_DIR; then
