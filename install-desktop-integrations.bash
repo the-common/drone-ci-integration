@@ -11,12 +11,17 @@ set \
 shopt \
     -s nullglob
 
-script_dir="${BASH_SOURCE[0]%/*}"
+script_dir="$(
+    realpath \
+        --strip \
+        "${BASH_SOURCE[0]%/*}"
+)"
 
 init(){
     local \
         templates_dir \
-        shipped_file_filename
+        shipped_file_filename \
+        shipped_file_filename_without_extension
 
     templates_dir="$(get_templates_dir)"
 
@@ -24,12 +29,13 @@ init(){
     for shipped_file in \
         "${script_dir}"/.*.shipped \
         "${script_dir}"/*.shipped; do
-        shipped_file_filename="${shipped_file%.shipped}"
+        shipped_file_filename="${shipped_file##*/}"
+        shipped_file_filename_without_extension="${shipped_file_filename%.shipped}"
         install \
             --mode=0644 \
             --verbose \
             "${shipped_file}" \
-            "${templates_dir}"/"${shipped_file_filename}"
+            "${templates_dir}"/"${shipped_file_filename_without_extension}"
     done
     install \
         --directory \
