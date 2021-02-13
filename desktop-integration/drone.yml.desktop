@@ -1,0 +1,16 @@
+# Template definition file for KDE desktop environment
+#
+# Reference:
+#   - Adding an entry to the Create New menu - KDE UserBase Wiki
+#     https://userbase.kde.org/Adding_an_entry_to_the_Create_New_menu
+#
+# Copyright 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+[Desktop Entry]
+Name=.drone.yml
+Comment=Name this file ".drone.yml" at the root of your project dir:
+Comment[zh_TW]=於您的專案根目錄中新建此檔案並取名為「.drone.yml」
+Comment[zh_CN]=于您的项目根目录中新建此文件并取名为「.drone.yml」
+Type=Link
+URL=.drone.yml
