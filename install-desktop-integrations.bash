@@ -26,6 +26,7 @@ init(){
     mkdir -pv "${templates_dir}"
     install \
         --mode=0644 \
+        --verbose \
         "${script_dir}"/.drone.yml \
         "${templates_dir}"/.drone.yml
     install \
