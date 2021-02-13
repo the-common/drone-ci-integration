@@ -84,7 +84,9 @@ is_source_tree(){
 }
 
 get_templates_dir(){
-    local templates_dir
+    local \
+        templates_dir \
+        templates_dir_fallback="${HOME}"/Templates
 
 	if test -f "${XDG_CONFIG_HOME:-"${HOME}"/.config}"/user-dirs.dirs;then
 		# external file, disable check
@@ -92,12 +94,12 @@ get_templates_dir(){
 		source "${XDG_CONFIG_HOME:-"${HOME}"/.config}"/user-dirs.dirs
 
 		if test ! -v XDG_TEMPLATES_DIR; then
-            templates_dir="${HOME}"/Templates
+            templates_dir="${templates_dir_fallback}"
         else
 			templates_dir="${XDG_TEMPLATES_DIR}"
 		fi
 	else
-        templates_dir="${HOME}"/Templates
+        templates_dir="${templates_dir_fallback}"
     fi
 
     printf '%s' "${templates_dir}"
