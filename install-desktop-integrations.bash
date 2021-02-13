@@ -25,7 +25,7 @@ init(){
 
     templates_dir="$(get_templates_dir)"
 
-    mkdir -p "${templates_dir}"
+    mkdir -pv "${templates_dir}"
     for shipped_file in \
         "${script_dir}"/.*.shipped \
         "${script_dir}"/*.shipped; do
@@ -40,14 +40,17 @@ init(){
     install \
         --directory \
         --mode=0755 \
+        --verbose \
         "${templates_dir}"/continuous-integration \
         "${templates_dir}"/continuous-integration
     install \
         --mode=0755 \
+        --verbose \
         "${script_dir}"/continuous-integration/build-product-release-archive.sh \
         "${templates_dir}"/continuous-integration/build-product-release-archive.sh
     install \
         --mode=0755 \
+        --verbose \
         "${script_dir}"/continuous-integration/static-code-analysis.sh \
         "${templates_dir}"/continuous-integration/static-code-analysis.sh
 }
