@@ -13,6 +13,7 @@
 
 # Exclude development assets from release archive
 /.* export-ignore
+/.*.shipped -export-ignore
 /continuous-integration/patch-template-release-archive.sh export-ignore
 
 # Exclude invalid licenses from release archive
