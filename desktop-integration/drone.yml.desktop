@@ -8,7 +8,9 @@
 # SPDX-License-Identifier: CC-BY-SA-4.0
 
 [Desktop Entry]
-Name=.drone.yml
+Name=Drone CI configuration file
+Name[zh_TW]=Drone CI 設定檔
+Name[zh_CN]=Drone CI 配置文件
 Comment=Name this file ".drone.yml" at the root of your project dir:
 Comment[zh_TW]=於您的專案根目錄中新建此檔案並取名為「.drone.yml」
 Comment[zh_CN]=于您的项目根目录中新建此文件并取名为「.drone.yml」
