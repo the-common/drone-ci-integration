@@ -21,3 +21,6 @@
 # Exclude invalid licenses from release archive
 /LICENSES/* export-ignore
 /LICENSES/CC-BY-SA-4.0.txt -export-ignore
+
+# Include dep5 declaration file in release archive
+/.reuse/ -export-ignore
