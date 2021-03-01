@@ -44,12 +44,13 @@ repos:
   # https://www.shellcheck.net/
   # https://github.com/jumanjihouse/pre-commit-hooks#shellcheck
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.0.0
+    rev: 2.1.5
     hooks:
       - id: shellcheck
-        # WORKAROUND: Fix "The hook `shellcheck` specifies
-        # `additional_dependencies` but is using language `script` which
-        # does not install an environment.  Perhaps you meant to use a
-        # specific language?" error
-        # https://github.com/jumanjihouse/pre-commit-hooks/issues/82
-        additional_dependencies: []
+
+  # Check REUSE compliance
+  # https://reuse.software/
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: v0.12.1
+    hooks:
+      - id: reuse
