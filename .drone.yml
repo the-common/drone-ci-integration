@@ -67,3 +67,33 @@ steps:
         from_secret: github_api_token
       files: '*.tar*'
       title: '${DRONE_TAG##v}'
+
+  - name: Send Continuous Integration(CI) result to Telegram
+    event:
+      - push
+      - pull_request
+    when:
+      status:
+        - success
+        - failure
+    depends_on:
+      - Static code analysis
+    image: appleboy/drone-telegram
+    settings:
+      token:
+        from_secret: telegram_bot_auth_token
+      to: __TELEGRAM_CHAT_ID__
+      format: Markdown
+      message: |-
+        **{{#success build.status}}✅ Continuous Intetgration(CI) is successful**{{else}}❌ Continuous Integration(CI) is not successful{{/success}}**
+
+        📖Project: {{repo.namespace}}/{{repo.name}}
+        🎋Branch: {{commit.branch}}
+        👤Author: {{commit.author}}
+        ✒️Revision: {{truncate commit.sha 8}}
+
+        ```
+        {{commit.message}}
+        ```
+        ⏲️Time spent: {{since build.started}}
+        🌐Report: {{build.link}}
