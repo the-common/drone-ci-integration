@@ -1,12 +1,12 @@
-# The Common Drone CI Configuration Templates
+# The Common Drone CI Integration Template
 
-This project provides a common base of Drone CI's configuration file(.drone.yml) that should be easily adaptable for most project's with little modifications.
+A common Drone CI integration template that should be easily adaptable for most project's with few modifications
 
-[![Continuous Integration(CI) status](https://cloud.drone.io/api/badges/Lin-Buo-Ren/common-drone-ci-configs/status.svg?github-camo-dont-cache=true)](https://cloud.drone.io/Lin-Buo-Ren/common-drone-ci-configs) [![REUSE compliance status](https://api.reuse.software/badge/github.com/Lin-Buo-Ren/common-drone-ci-configs)](https://api.reuse.software/info/github.com/Lin-Buo-Ren/common-drone-ci-configs)
+[![Continuous Integration(CI) status](https://cloud.drone.io/api/badges/the-common/drone-ci-integration/status.svg?github-camo-dont-cache=true)](https://cloud.drone.io/the-common/drone-ci-integration) [![REUSE compliance status](https://api.reuse.software/badge/github.com/the-common/drone-ci-integration)](https://api.reuse.software/info/github.com/the-common/drone-ci-integration)
 
 ## How to use
 
-1. Download release archive from the [Releases](https://github.com/Lin-Buo-Ren/common-drone-ci-configs/releases) page
+1. Download release archive from the [Releases](https://github.com/the-common/drone-ci-integration/releases) page
 1. Extract the release archive
 1. From the release folder, install the following files to your project's root directory
     - [.drone.yml](.drone.yml)  

@@ -6,8 +6,8 @@
 #   - Docker Pipelines | Drone
 #     https://docs.drone.io/quickstart/docker/
 #
-# This file is based on The Common Drone CI Configuration Templates project:
-# https://github.com/Lin-Buo-Ren/common-drone-ci-configs
+# This file is based on The Common Drone CI Integration Template project:
+# https://github.com/the-common/drone-ci-integration
 #
 # Copyright 2021 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0
